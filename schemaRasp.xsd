@@ -1,0 +1,34 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="schedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="title"/>
+        <xs:element name="day" maxOccurs="12">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="name-day"/>
+              <xs:element name="lesson" maxOccurs="4" minOccurs="0">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <xs:element type="xs:string" name="time"/>
+                    <xs:element type="xs:string" name="name-lesson"/>
+                    <xs:element type="xs:string" name="office"/>
+                    <xs:element name="parity-week">
+                      <xs:complexType mixed="true">
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="time" minOccurs="0"/>
+                          <xs:element type="xs:string" name="name-lesson"/>
+                          <xs:element type="xs:string" name="office" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
